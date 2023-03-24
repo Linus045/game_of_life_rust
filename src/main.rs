@@ -83,7 +83,6 @@ fn render_game(cells: &CellArray, term: &mut Terminal<Stdout>) {
                 }
             };
         }
-        println!();
     }
     term.flush_batch().expect("Failed to flush batch");
 }
@@ -94,8 +93,8 @@ fn update_game(cells: &mut CellArray) {
     for x in 0..CELL_WIDTH {
         for y in 0..CELL_HEIGHT {
             let mut alive_neighbours = 0;
-            for xoff in (-1i32..=1).rev() {
-                for yoff in (-1i32..=1).rev() {
+            for xoff in -1i32..=1 {
+                for yoff in -1i32..=1 {
                     let neighbour_x = (x as i32) + xoff;
                     let neighbour_y = (y as i32) + yoff;
                     if neighbour_x < 0
